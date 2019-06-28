@@ -1,11 +1,16 @@
 import React from 'react';
 import './FaceRecognition.css';
+
+let randomIdgenerate=()=>{
+	return Math.round(Math.random()*10000);
+}
+
 const FaceRecognition=({box,imageurl})=>{
 
 	let boxeElements=[];
 	for(let coordObj of box){
 
-		boxeElements.push(<div className='bounding-box' style={{left: coordObj.leftcol,top: coordObj.toprow,right:coordObj.rightcol,bottom: coordObj.bottomrow }}></div>)
+		boxeElements.push(<div key={randomIdgenerate()} className='bounding-box' style={{left: coordObj.leftcol,top: coordObj.toprow,right:coordObj.rightcol,bottom: coordObj.bottomrow }}></div>)
 
 	}
 
