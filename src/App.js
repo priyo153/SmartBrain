@@ -9,7 +9,9 @@ import Particles from 'react-particles-js';
 import particle from './particle-config.json';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
+import cors from "cors";
 const  particleparam=particle;
+
 
 const ApiUrl=/*'http://localhost:8080/'*/'https://priyojit-smartbrain-api.herokuapp.com/'
 const initialState={
