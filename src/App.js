@@ -9,7 +9,7 @@ import Particles from 'react-particles-js';
 import particle from './particle-config.json';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import cors from "cors";
+//import cors from "cors";
 const  particleparam=particle;
 
 
