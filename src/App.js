@@ -11,7 +11,7 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 const  particleparam=particle;
 
-
+const ApiUrl=/*'http://localhost:8080/'*/'https://priyojit-smartbrain-api.herokuapp.com/'
 const initialState={
      input:'',
      imageurl:'',
@@ -41,7 +41,7 @@ class App extends Component {
  }
 
  componentDidMount(){
-  fetch('http://localhost:8080')
+  fetch(ApiUrl)
   .then(res=>res.json())
   .then(data=>{
     if(data==='ok'){
@@ -112,7 +112,7 @@ displayFaceBox=(box)=>{
 
  onSubmit=()=>{
  
-  fetch("http://localhost:8080/imageurl",{
+  fetch(ApiUrl+"imageurl",{
     method: "post",
     headers: {'content-type' :'application/json'},
     body: JSON.stringify({input:this.state.imageurl})
@@ -123,7 +123,7 @@ displayFaceBox=(box)=>{
     this.displayFaceBox(this.calculateFaceLocation(data));
 
     if(data){
-      fetch("http://localhost:8080/image",{
+      fetch(ApiUrl+"image",{
         method: "post",
         headers: {'content-type' :'application/json'},
         body: JSON.stringify({id:this.state.user.id})
@@ -154,8 +154,8 @@ displayFaceBox=(box)=>{
              x=
                 <Signin 
                 onRouteChange={this.onRouteChange}
-                setUserInfo={this.setUserInfo} />
-                
+                setUserInfo={this.setUserInfo}
+                ApiUrl={ApiUrl} />
               ;
 
             }
@@ -163,7 +163,8 @@ displayFaceBox=(box)=>{
 
              x=
                <Register 
-               onRouteChange={this.onRouteChange} />
+               onRouteChange={this.onRouteChange}
+               ApiUrl={ApiUrl} />
               ;
             }
             else if(this.state.SignedIn===true){

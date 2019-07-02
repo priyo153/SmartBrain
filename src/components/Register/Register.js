@@ -5,6 +5,7 @@ class Register extends React.Component{
 constructor(){
 	super();
 
+
 	this.state={
 		email: '',
 		password: '',
@@ -28,7 +29,7 @@ onPasswordChange=(event)=>{
 onSubmitSignIn=()=>{
 	if( this.state.email!=='' && this.state.password !=='' && this.state.name!==''){
 
-		fetch('http://localhost:8080/register',{
+		fetch(this.props.ApiUrl+"register",{
 			method: 'post',
 			headers: {'content-type': 'application/json'},
 			body: JSON.stringify({
@@ -60,7 +61,8 @@ onSubmitSignIn=()=>{
 
 
 
-		});
+		})
+		.catch(err=>console.log);
 
 
 
